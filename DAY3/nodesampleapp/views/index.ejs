@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <div>
+      안녕하세요.<b><%= userName %> 님</b><br>
+      나이는 <%= age%> 이시군요. 
+
+      <% if(age > 20) { %>
+        <h3 style="color:red;">나이가 너무 많아요.. 나가주세요.</h3>
+      <% } %>
+
+
+    </div>
+  </body>
+</html>

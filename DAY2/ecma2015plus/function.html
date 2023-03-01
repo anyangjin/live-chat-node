@@ -1,0 +1,51 @@
+<html>
+
+
+<body>
+    <script>
+    //전통적인 자바스크립트를 이용한 기능구현(함수)방식을 정의해보자
+
+    //function예약어 이후 함수명(입력파라메터=매개변수){기능구현영역 return 실행결과 반환값;}
+    function fnPlus(a,b){
+        let c = a+b;
+        return c;
+    }
+
+    var result = fnPlus(1,20);
+    console.log("기본함수 출력 반환값:",result);
+
+
+    //익명함수 방법으로 함수를 정의해보자..
+    //함수명을 기재하지 않고 사용가능..
+    var plus1 = function(a,b){
+        return a+b;
+    }
+
+    var result1 = plus1(20,30);
+    console.log("익명함수 출력값:",result1);
+
+
+    //화살표 함수:return 구문이 있는 화살표함수...
+    const plus2 = (a,b)=>{
+        return a+b;
+    }
+    console.log("화살표함수 출력값-return 구문있는경우 :",plus2(10,30));
+
+    //화살표함수인데 return 구문을 생략한경우
+    const plus3 = (a,b)=>(a+b);
+    console.log("화살표함수 출력값-return 구문생략",plus3(7,7));
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

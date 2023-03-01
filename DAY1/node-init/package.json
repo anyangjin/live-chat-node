@@ -1,0 +1,15 @@
+{
+  "name": "init",
+  "version": "1.0.0",
+  "description": "최초 노드 팩키지 어플리케이션",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "moment": "^2.29.4"
+  }
+}

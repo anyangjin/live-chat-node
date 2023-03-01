@@ -1,0 +1,96 @@
+
+<html>
+
+
+<body>
+    <h1>객체 리터럴 실습 - 자바스크립트로 객체정의-동적속성 정의 방법 실습 </h1>
+
+    <script>
+
+        var name ="강창훈";
+        var age = 40;
+
+        //자바스크립트는 객체를 정의할떄 {}로 정의합니다. 
+        //객체는 속성(Property,Attribute...) 과 기능(Method,Function)
+        //객체의 속성과 기능정의는 {안에 속성명:속성값,기능명:함수정의}
+        var  user = {
+            name:name,
+            age:age,
+            address:"경기도 성남시 수정구...",
+            telephone: "010-2760-5246",
+            teach:function(){
+                return "teaching node.js now...";
+            }
+        }
+
+        console.log("사용자 데이터 정의 객체를 출력해보자.",user);
+
+        //자바스크립트 객체의 속성은 속성명과 할당되는 변수명이 같으면 변수를 생략할수 있다.
+        //ECMASCRIPT 신규 문법: 객체 속성명과 할당되는 변수명이 같으면 생략도 가능..
+        var user2 = {
+            name,
+            age:age,
+            address:"서울시 강남구",
+            telephone:"111-555-555"
+        };
+
+        console.log("사용자 데이터2 정의 객체를 출력해보자.",user2);
+
+
+        //카멜식 표현법..
+        // 여러개의 변수를 한번에 정의할수 있다
+        let id,productName,price;
+
+        id = 1;
+        productName ="LG그램노트북17";
+        price = 2000000;
+
+        let lgnotebook = {
+            id,
+            productName,
+            price,
+            brand: "LG전자"
+        };
+
+        //객체의 속성값을 변경해보자
+        lgnotebook.price = 5000000;
+        console.log("LG노트북 정보:",lgnotebook);
+
+
+        //동적 속성 정의기능 실습ㄴ
+        var center = "강남지점";
+
+        //일반적으로 대부분의 언어들은 객체의 속성을 미리정의하고 값을 할당하지만
+        //요즈음 대부분 개발언어들은 초기 정의된 객체구조에 동적으로 속성을 정의하고 값을 할당할수 있따..
+        lgnotebook[center+"_재고량"] = 20;
+        lgnotebook["강북지점_재고량"] = 10;
+        lgnotebook["currentTotalStock"] = 30;
+
+        console.log("LG노트북 정보:",lgnotebook);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

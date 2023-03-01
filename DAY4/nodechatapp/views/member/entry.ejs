@@ -1,0 +1,77 @@
+<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+  <div class="login-wrapper">
+    <form action="/member/entry" method="post" id="entryForm">
+      <div class="login-screen">
+        <div class="login-body">
+          <!-- //메인으로 이동시키는 로고 링크 -->
+          <a href="/" class="login-logo">
+            <img src="/img/logo.svg" alt="Quick Chat" />
+          </a>
+          <h6>Welcome to Quick Chat App,<br />Create your account.</h6>
+          <div class="field-wrapper">
+            <input type="email" autofocus name="email" id="email" />
+            <div class="field-placeholder">Email ID</div>
+          </div>
+          <div class="field-wrapper">
+            <input type="password" name="password" id="password" />
+            <div class="field-placeholder">Password</div>
+          </div>
+          <div class="field-wrapper mb-3">
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+            />
+            <div class="field-placeholder">Confirm Password</div>
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn btn-primary ml-auto">
+              Sign Up
+            </button>
+          </div>
+        </div>
+        <div class="login-footer">
+          <span class="additional-link"
+            >Have an account?
+            <a href="login.html" class="btn btn-secondary">Login</a></span
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  //유효성 검사
+
+  //회원가입폼의 데이터가 서버주소로 넘어가기전에 유효성 검사를 실시한다.
+  $("#entryForm").submit(function () {
+    if ($("#email").val() == "") {
+      alert("메일 주소를 입력해 주세요.");
+      $("#email").focus();
+      return false;
+    }
+
+    if ($("#password").val() == "") {
+      alert("암호를 입력해 주세요.");
+      $("#password").focus();
+      return false;
+    }
+
+    if ($("#confirmPassword").val() == "") {
+      alert("암호 확인을 다시 해주세요.");
+      $("#confirmPassword").focus();
+      return false;
+    }
+
+    if ($("#password").val() != $("#confirmPassword").val()) {
+      alert("암호를 정확히 확인해주세요.");
+      $("#confirmPassword").val("");
+      $("#confirmPassword").focus();
+      return false;
+    }
+
+    return true;
+  });
+  //알림창 띄우고 마우스 포커스를 맞춰라.
+</script>

@@ -1,0 +1,81 @@
+<html>
+<body>
+    <h1>비구조화 할당 실습</h1>
+
+    <script>
+
+        //배열은 대괄호로 표시합니다. 
+
+        //문자열 배열정의
+        //문자열 배열정의 및 값할당 
+        const books = ["React","Vue","Anglular","Node"];
+        
+        //books배열에서 첫번쨰 문자열을 가져와 book1으로 구조화된 변수에 값을 할당한다. 
+        const book1 = books[0];//배열의 순서(인덱스)는 0부터 시작한다. React
+        const book2 = books[1]; // Vue
+
+        console.log("배열을 출력해보자",books);
+        console.log("배열값 1,2 출력해보자",book1,book2);
+
+
+        //배열 비구조화 할당방식으로 배열값을 할당해보자.
+        const [book3,book4] = ["자바","닷넷","파이썬","PHP"];
+
+        console.log("비구조화 할당으로 배열의 값을 추출해 변수에 할당한 값을출력해보자,",book3,book4);
+
+
+        const arrBooks = ["자바","닷넷","파이썬","PHP"];
+        const [book5, ...extraBooks] = arrBooks;
+
+        console.log("배열의 첫번쨰 값과 나머지 배열목록을 출력해보자.",book5,extraBooks);
+
+
+        const [book6,book7,book8,book9,book10 = "MYSQLDB"] = ["자바","닷넷","파이썬","PHP"];
+        console.log("추출된 단일 값을 출력해보자",book6,book7,book8,book9,book10);
+
+
+  
+        //비구조화 할당 문법을 통해 객체의 속성값을 정의사용할수도 있다.
+        const trendTech ={
+            front:"React.js",
+            backend:"Java",
+            server: "Linux(Ubuntu20.03)",
+            rdbms:"MySQL",
+            infra:"AWS",
+            nosql:"MongoDB"
+        };
+
+        //객체의 속성값을 불러와 변수에 구조를 정의하고 값을 할당한다//전통적인 객채속성의 값을 사용하는 방식이라면...
+        const favoriteFrontTech = trendTech.front;
+        const favoriteBackend = trendTech.backend;
+
+
+
+        //비구조화할당 방식을 통해 객체의 속성을 저장하자..
+        //객체의 비구조화 할당은 객체속성명과 동일한 상수에 값이 할당된다.
+        const {front,backend,server,rdbms,infra,nosql,getAuthor} = {
+            front:"React.js",
+            backend:"Java",
+            server: "Linux(Ubuntu20.03)",
+            rdbms:"MySQL",
+            infra:"AWS",
+            nosql:"MongoDB",
+            getAuthor:function(){
+                return "강창훈";
+            }
+        };
+
+        console.log("객체 비구조화 할당방식으로 추출한 단일 상수들 출력하기",front,backend,getAuthor());
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

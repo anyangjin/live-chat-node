@@ -1,0 +1,89 @@
+
+
+<html>
+    <body>
+
+        <h1>변수/상수 실습</h1>
+
+
+        <script>
+            //전통적인 var 예약어를 통한 변수 선언방식의 문제점을 알어보자...
+
+            var userName ="강창훈";
+            var age = 40;
+            var price = 5000;
+            var isMale = true;
+
+            //상수 선언- 기본배송비 2000원으로 할당...
+            const defaultDelyFee = 2000;
+            console.log("상수 기반 기본배송비 : ",defaultDelyFee);
+
+            //한번 할당된 상수값을 변경시도한다.<----요기서...에러발생할걸???
+            //defaultDelyFee = 5000;
+
+
+
+            //기본배송비는 한번 할당하면 변경할수 없어야한다//비지니스로직...
+            var baseDelyFee = 5000;
+            var productPrice = 9000;
+
+            //웹브라우저의 개발자도구내의 콘솔탭에 로그정보를 출력합니다.
+            console.log('var-기본배송비:',baseDelyFee);
+
+            //기본배송비는 안바뀌면 좋을텐데.... 쩝....
+            baseDelyFee = 2000;
+            console.log('변경된 기본배송비',baseDelyFee);
+
+
+            //var변수의 문제점중 또하나는 블록스코프란 개념이 없다..
+            if(isMale == true){
+                var msg = "남성입니다.";
+                console.log('if구문 블록스코프내에서 msg변수 사용출력:',msg);
+            }
+
+            //총결재 비용 정의 : let
+            let totalPayPrice = 0;
+
+            //let으로 선언된 변수의 값은 재할당이 가능하다 const와 다르게....
+            totalPayPrice = baseDelyFee + productPrice;
+
+            console.log("총결재 비용은=",totalPayPrice);
+
+            console.log("if구문내에서 선언된 msg변수의 값을 if블럭범위 밖에서도 사용할수 있따.",msg);
+
+            //let과 const는 블럭스코프 규칙을 반드시 준수해야한다.
+            //if,for,while 제어구문 범위(블럭스코프)내에서 선언된 let과 const 변수,상수는 해당 스코프
+            //밖에서 호출하면 에러가 자동 발생시켜서 비지니스로직구현시 예상치 못한 문제를 사전 방지해준다..
+            var region = "제주도";
+            if(region == "제주도"){
+                //도서/산간 추가 배송비 정의 
+                const plusDelyFee = 5000;
+                totalPayPrice += plusDelyFee;
+
+                let test ="테스트입니다.";
+
+                //블럭스코프 내에서의 const사용 =가능하다.
+                console.log("추가 도서 배송비용:",plusDelyFee);
+            }
+
+            //if가정문 블록범위밖에서 블럭내에서 선언된 const 사용시 <-----요기서 에러발생...
+            //console.log("추가 도서 배송비용:",plusDelyFee);
+
+            //let도 블럭스코프 문법규칙을 준수해서 사용해야한다.
+            console.log("if구문내에서 선언된 let 변수를 밖에서 호출해보자...:",test);
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+    </body>
+</html>

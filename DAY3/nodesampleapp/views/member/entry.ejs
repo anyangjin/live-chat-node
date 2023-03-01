@@ -1,0 +1,21 @@
+<html>
+
+<body>
+    <h1>회원 가입 페이지</h1>
+
+    <!-- 폼태그내 입력요소에 사용자가 입력한 값을 http://localhost:3000/member/entry란 주소로 post방식으로 전달한다. -->
+    <form action="/member/entry" method="post">
+
+        메일주소:<input type="text" name="email" /><br>
+        암호:<input type="text" name="member_password" /><br>
+        이름:<input type="text" name="name" /><br>
+        전화번호:<input type="text" name="telephone" /><br>
+        <hr>
+        <input type="submit" value="등록" />
+
+    </form>
+
+
+
+</body>
+</html>

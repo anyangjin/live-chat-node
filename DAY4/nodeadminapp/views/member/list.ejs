@@ -1,0 +1,127 @@
+
+
+            <!--우측 상단 헤더 영역 -->
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>회원정보조회</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="/Home/Index">Home></a>
+                        </li>
+                        <li>
+                            <a>회원정보조회></a>
+                        </li>
+                        <li class="active">
+                            <strong>조회</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+
+            <!--우측 콘텐츠 영역 -->
+            <div class="wrapper wrapper-content">
+
+                <!-- 정보조회옵션 선택 및 조회영역 -->
+                <div class="ibox-content m-b-sm border-bottom">
+                    <form action="/member/list" method="post">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="OrderNo">메일주소</label>
+                                    <input type="text" name="email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="OrderName">이름</label>
+                                    <input type="text" name="name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label" for="MobileNo">전화번호</label>
+                                    <input type="text" name="telephone" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-primary" value="조회" />
+                            <a href="/member/entry" class="btn btn-info">신규</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 조회결과 목록 출력영역 -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-content">
+                                <div class="table-responsive">
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="10%">회원번호</th>
+                                                <th width="10%">메일주소</th>
+                                                <th width="20%">성명</th>
+                                                <th width="20%">가입유형</th>
+                                                <th width="10%">전화번호</th>
+                                                <th width="10%">가입상태</th>
+                                                <th width="20%">등록일</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="hoverTblBody">
+                                            <% for(var i =0;i<members.length;i++){ %>
+                                                <tr>
+                                                    <td><%= members[i].member_id%></td>
+                                                    
+                                                    <!-- 회원정보확인 및 수정페이지로 이동하는데 쿼리스트링방식으로 회원번호전달 -->
+                                                    <td><a href="/member/modify?mid=<%= members[i].member_id%>&test=sample"><%= members[i].email%></a></td>
+                                                    
+                                                    <!-- 회원정보확인 및 수정페이지로 이동하는데 파라메터방식을 이용해 회원번호 전달 -->
+                                                    <td><a href="/member/modify/<%= members[i].member_id%>"><%= members[i].name%></a></td>
+
+
+                                                    <td>
+                                                    <% if(members[i].entry_type_code == 0){%>
+                                                            <b>직접가입</b>
+                                                    <% } else{ %>
+                                                        <b>페이스북</b>
+                                                    <% }%>
+                                                    </td>
+                                                    <td><%= members[i].telephone%></td>
+                                                    <td>
+                                                    <% if(members[i].use_state_code == 0){%>
+                                                        <b>대기</b>
+                                                    <% } else if(members[i].use_state_code == 1){ %>
+                                                        <b>사용중</b>
+                                                    <% } else{ %>
+                                                        <b>탈퇴</b>
+                                                    <% }%>
+                                                    </td>
+                                                    <td><%= moment(members[i].createdAt).format('YYYY-MM-DD HH:mm:ss')%></td>
+                                                    <!-- //위에 넣으면 실행 오류나옴 -->
+                                                    <!-- //<%= moment(members[i].createdAt).format('YYYY-MM-DD HH:mm:ss')%> -->
+
+                                                        <!-- <% let today = new Date(); let year = today.getFullYear(); let month
+                                                        = today.getMonth() + 1; let date = today.getDate(); %> -->
+                                                    </tr>
+                                                <% } %>
+
+                
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>

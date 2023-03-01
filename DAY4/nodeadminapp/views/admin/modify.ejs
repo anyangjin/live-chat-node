@@ -1,0 +1,162 @@
+<!--우측 콘텐츠 헤더영역 -->
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>사용자 정보관리</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="/Home/Index">Home></a>
+      </li>
+      <li>
+        <a>신규 사용자 관리></a>
+      </li>
+      <li class="active">
+        <strong>등록</strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2"></div>
+</div>
+
+<!--우측 콘텐츠 영역 -->
+<form action="/admin/entry" method="post" id="adminForm">
+  <div class="wrapper wrapper-content">
+    <div class="ibox-content m-b-sm border-bottom">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="control-label">메일주소</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              value="<%=admin.email%>"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="control-label">암호</label>
+            <input
+              value="<%=admin.admin_password%>"
+              type="password"
+              name="password"
+              id="password"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="control-label">이름</label>
+            <input
+              type="text"
+              value="<%=admin.admin_name%>"
+              name="name"
+              id="name"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="control-label">전화번호</label>
+            <input
+              type="text"
+              name="telephone"
+              value="<%=admin.telephone%>"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="control-label">아이디</label>
+            <input
+              type="text"
+              value="<%=admin.admin_id%>"
+              name="id"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="control-label">권한상태</label>
+            <select
+              value="<%=admin.used_yn_code.toString()%>"
+              name="entrystate"
+              class="form-control"
+            >
+              <option value="1">활성</option>
+              <option value="0">비활성</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="control-label">가입유형</label>
+            <select name="entrytype" class="form-control">
+              <option>직접가입</option>
+              <option>페이스북가입</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="control-label">가입일시</label>
+            <% let today = new Date(); let year = today.getFullYear(); let month
+            = today.getMonth() + 1; let date = today.getDate(); %>
+            <input
+              type="text"
+              name="date"
+              value="<%= admin.reg_date%>"
+              class="form-control"
+            />
+            <!-- 위에 벨류랑 바꿀수 ㅇ value="<%= year + '-' + month + '-' + date%>" -->
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">저장</button>
+        <a href="/admin/list" class="btn btn-info">목록</a>
+        <a
+          href="/admin/delete?aid=<%= admin.admin_member_id%>"
+          id="btnDelete"
+          class="btn btn-danger"
+          >삭제</a
+        >
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- 회원가입 처리 관련 클라이언트 스크립트 코드정의영역 -->
+<script>
+  //adminForm 폼태그에서 submit 이벤트가 발생하면 실행되는 함수기능정의
+  $("#adminForm").submit(function () {
+    //jquery에서 $("#HTML태그의 고유아이디값")으로 해당 HTML요소를 조회한다.
+    if ($("#email").val() == "") {
+      alert("메일주소를 입력해주세요.");
+      $("#email").focus();
+      return false;
+    }
+
+    if ($("#password").val() == "") {
+      alert("암호를 입력해주세요.");
+      $("#password").focus();
+      return false;
+    }
+
+    //form태그의 지정된 라우팅주소로 폼데이터를 전송한다.
+    return true;
+  });
+</script>
