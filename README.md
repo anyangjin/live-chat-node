@@ -3,4 +3,4 @@ node.js/
 Node Express/
 RDBMS & NoSQL/
 MySQL Sequelize & ORM Framework
-다 자간의 채팅 구현까지 마무리 하기!!
+<p>마지막 실시간 여러명 동시에 채팅 구현까지 마무리 하기!!</p>
