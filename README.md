@@ -1,5 +1,5 @@
 # live-chat-node
--node.js/n
+-node.js/\n
 -Node Express/
 -RDBMS & NoSQL/
 -MySQL Sequelize & ORM Framework
